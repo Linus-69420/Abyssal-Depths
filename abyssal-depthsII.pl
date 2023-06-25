@@ -1,4 +1,4 @@
-/* Abyssal Depths, by OpenAI */
+/* Abyssal Depths*/
 
 :- dynamic i_am_at/1, at/2, holding/1, unlocked/2.
 :- retractall(at(_, _)), retractall(i_am_at(_)), retractall(holding(_)), retractall(unlocked(_, _)).
@@ -52,10 +52,10 @@ drop(_) :-
     write('You aren''t holding it!'), nl.
 
 /* These rules define the direction letters as calls to go/1. */
-n :- go(n).
-s :- go(s).
-e :- go(e).
-w :- go(w).
+left :- go(left).
+forward :- go(forward).
+right :- go(right).
+back :- go(back).
 
 /* This rule tells how to move in a given direction. */
 go(Direction) :-
@@ -184,7 +184,7 @@ instructions :-
     write('Enter commands using standard Prolog syntax.'), nl,
     write('Available commands are:'), nl,
     write('start.                    -- to start the game.'), nl,
-    write('n.  s.  e.  w.            -- to go in that direction.'), nl,
+    write('forward. back. left. right.           -- to go in that direction.'), nl,
     write('take(Object).             -- to pick up an object.'), nl,
     write('drop(Object).             -- to put down an object.'), nl,
     write('open_chest.               -- to open the chest with the key.'), nl,
